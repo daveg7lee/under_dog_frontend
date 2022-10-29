@@ -85,7 +85,7 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Text fontWeight="medium">{user?.points} 포인트</Text>
+              <Text fontWeight="medium">{user?.points}원</Text>
               <Menu>
                 <MenuButton>
                   <Avatar size={"sm"} name={user?.name} src={user?.avatarUrl} />
