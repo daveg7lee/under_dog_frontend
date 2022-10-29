@@ -82,9 +82,20 @@ export default function ProjectDetail() {
           <Button
             w="full"
             isLoading={mutation.isLoading}
-            onClick={() => mutation.mutate({ amount: amount * 1000, id })}
+            onClick={() =>
+              mutation.mutate({
+                amount:
+                  amount *
+                  (data?.project.ticket_price
+                    ? data?.project.ticket_price
+                    : 1000),
+                id,
+              })
+            }
           >
-            {amount * 1000}원 후원하기
+            {amount *
+              (data?.project.ticket_price ? data?.project.ticket_price : 1000)}
+            원 후원하기
           </Button>
           <HStack w="full">
             <Button w="full">공유하기</Button>

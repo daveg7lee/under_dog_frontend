@@ -121,6 +121,9 @@ interface ICreateProjectVariables {
   detail: string;
   goal_amount: number;
   categoryId: number;
+  ticket_price: number;
+  fundingDueDate: string;
+  fundingReward: string;
 }
 
 interface IFundProject {
@@ -144,6 +147,9 @@ export const createProject = ({
   detail,
   goal_amount,
   categoryId,
+  ticket_price,
+  fundingDueDate,
+  fundingReward,
 }: ICreateProjectVariables) =>
   instance
     .post(
@@ -153,6 +159,9 @@ export const createProject = ({
         detail,
         goal_amount,
         categoryId,
+        ticket_price,
+        fundingDueDate,
+        fundingReward,
       },
       {
         headers: { authorization: getCookie(JWT_TOKEN) || "" },

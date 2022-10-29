@@ -19,6 +19,9 @@ interface IForm {
   detail: string;
   goal_amount: number;
   categoryId: number;
+  ticket_price: number;
+  fundingDueDate: string;
+  fundingReward: string;
 }
 
 export default function PublishProject() {
@@ -43,8 +46,24 @@ export default function PublishProject() {
     },
   });
 
-  const onSubmit = ({ title, detail, goal_amount, categoryId }: IForm) => {
-    mutation.mutate({ title, detail, goal_amount, categoryId });
+  const onSubmit = ({
+    title,
+    detail,
+    goal_amount,
+    categoryId,
+    ticket_price,
+    fundingDueDate,
+    fundingReward,
+  }: IForm) => {
+    mutation.mutate({
+      title,
+      detail,
+      goal_amount,
+      categoryId,
+      ticket_price,
+      fundingDueDate,
+      fundingReward,
+    });
   };
 
   return (
@@ -64,6 +83,17 @@ export default function PublishProject() {
           {...register("goal_amount")}
           placeholder="목표 금액"
         />
+        <Input
+          type="number"
+          {...register("ticket_price")}
+          placeholder="티켓 개당 금액"
+        />
+        <Input
+          type="date"
+          {...register("fundingDueDate")}
+          placeholder="펀딩 기간"
+        />
+        <Textarea {...register("fundingReward")} placeholder="펀딩 리워드" />
         <Select {...register("categoryId")}>
           {categoriesData?.categories.map((category: ICategory) => (
             <option value={category.id} key={category.id}>

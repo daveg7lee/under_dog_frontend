@@ -44,6 +44,9 @@ export interface IProject {
   mediaUrl: string;
   imageUrl: string;
   category: ICategory;
+  ticket_price: number;
+  fundingDueDate: string;
+  fundingReward: string;
 }
 
 export interface ICategory {
