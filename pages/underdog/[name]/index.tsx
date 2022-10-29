@@ -14,7 +14,6 @@ export default function UnderdogProfile() {
 
   return (
     <UnderdogProfileComponent name={data?.underdog.name}>
-      <Text>{data?.underdog.bio}</Text>
       <Grid
         templateColumns={{
           sm: "1fr",
