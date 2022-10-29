@@ -53,11 +53,21 @@ export interface IProjectsResponse {
   projects: IProject[];
 }
 
+interface IProjectResponse {
+  success: boolean;
+  project: IProject;
+}
+
 export const getRecommended = () =>
   instance.get(`projects/recommended`).then((response) => response.data);
 
 export const getProjects = () =>
   instance.get(`projects/`).then((response) => response.data);
+
+export const getProject = ({
+  queryKey,
+}: QueryFunctionContext): Promise<IProjectResponse> =>
+  instance.get(`projects/${queryKey[1]}`).then((response) => response.data);
 
 export const getCategories = () =>
   instance.get("/category").then((res) => res.data);
@@ -112,6 +122,22 @@ interface ICreateProjectVariables {
   goal_amount: number;
   categoryId: number;
 }
+
+interface IFundProject {
+  amount: number;
+  id: string | string[] | undefined;
+}
+
+export const fundProject = ({ amount, id }: IFundProject) =>
+  instance
+    .post(
+      `/projects/${id}/fund`,
+      { amount },
+      {
+        headers: { authorization: getCookie(JWT_TOKEN) || "" },
+      }
+    )
+    .then((res) => res.data);
 
 export const createProject = ({
   title,

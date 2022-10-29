@@ -39,7 +39,6 @@ export default function Me() {
         }}
         columnGap={6}
         rowGap={8}
-        px={{ base: 10, lg: 40 }}
       >
         {!userLoading &&
           user?.invests?.map((invest) => (

@@ -31,7 +31,7 @@ interface IForm {
 }
 
 export default function UnderdogModal({ onClose, isOpen }: UnderdogModalProps) {
-  const { register, handleSubmit } = useForm<IForm>();
+  const { register, handleSubmit, watch } = useForm<IForm>();
   const router = useRouter();
   const toast = useToast();
   const mutation = useMutation(createUnderdog, {
@@ -41,7 +41,9 @@ export default function UnderdogModal({ onClose, isOpen }: UnderdogModalProps) {
         status: "success",
       });
 
-      router.push("/");
+      onClose();
+
+      router.push(`/underdog/${watch("name")}`);
     },
     onError: ({
       response: {

@@ -29,7 +29,7 @@ export default function Home() {
   );
 
   return (
-    <Tabs align="center" variant="soft-rounded" colorScheme="green" mt={20}>
+    <Tabs align="center" variant="soft-rounded" colorScheme="green" mt={10}>
       <TabList>
         <Tab>Recommend</Tab>
         <Tab>Category</Tab>

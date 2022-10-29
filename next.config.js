@@ -6,7 +6,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `http://localhost:4000/:path*`,
+        destination: process.env.NODE_ENV !== "production" ? `http://localhost:4000/:path*` : `https://underdog-backend.onrender.com/:path*`,
       },
     ];
   },

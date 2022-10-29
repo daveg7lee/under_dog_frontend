@@ -39,7 +39,7 @@ export interface IProject {
   progress: number;
   goal_amount: number;
   current_amount: number;
-  investors: IUser[];
+  investors: IInvest[];
   like: IUser[];
   mediaUrl: string;
   imageUrl: string;
