@@ -76,24 +76,33 @@ export default function PublishProject() {
         spacing={4}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Input {...register("title")} placeholder="프로젝트 제목" />
-        <Textarea {...register("detail")} placeholder="상세 설명" />
+        <Input
+          {...register("title", { required: true })}
+          placeholder="프로젝트 제목"
+        />
+        <Textarea
+          {...register("detail", { required: true })}
+          placeholder="상세 설명"
+        />
         <Input
           type="number"
-          {...register("goal_amount")}
+          {...register("goal_amount", { required: true })}
           placeholder="목표 금액"
         />
         <Input
           type="number"
-          {...register("ticket_price")}
+          {...register("ticket_price", { required: true })}
           placeholder="티켓 개당 금액"
         />
         <Input
           type="date"
-          {...register("fundingDueDate")}
+          {...register("fundingDueDate", { required: true })}
           placeholder="펀딩 기간"
         />
-        <Textarea {...register("fundingReward")} placeholder="펀딩 리워드" />
+        <Textarea
+          {...register("fundingReward", { required: true })}
+          placeholder="펀딩 리워드"
+        />
         <Select {...register("categoryId")}>
           {categoriesData?.categories.map((category: ICategory) => (
             <option value={category.id} key={category.id}>

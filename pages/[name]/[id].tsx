@@ -40,7 +40,7 @@ export default function ProjectDetail() {
 
   return (
     <Grid templateColumns="2fr 1fr" px={{ base: 10, lg: 40 }} mt={10} gap={5}>
-      <Text>{data?.project?.detail}</Text>
+      <Text wordBreak="break-word">{data?.project?.detail}</Text>
       <VStack spacing={10}>
         <VStack
           p={5}
